@@ -81,7 +81,7 @@ a.cbutton:hover {
 }
 
 /* GRAPPELLI OVERRIDES */
-body { padding: 66px 20px 0; }
+body { padding: 0 0 0; }
 fieldset.module .cell { float:left; }
 ul.messagelist { top: 5px; }
 

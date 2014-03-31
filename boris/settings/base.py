@@ -86,7 +86,7 @@ STATICFILES_DIRS = (
 
 STATIC_URL = '/static/'
 
-INSTALLED_APPS = (
+INSTALLED_APPS = [
     'grappelli.dashboard',
     'grappelli',
 
@@ -110,7 +110,7 @@ INSTALLED_APPS = (
     'boris.syringes',
     'boris.users',
     'boris.utils'
-)
+]
 
 # always freeze south migrations
 SOUTH_AUTO_FREEZE_APP = True
@@ -138,3 +138,6 @@ GRAPPELLI_INDEX_DASHBOARD = 'boris.dashboard.CustomIndexDashboard'
 RAVEN_CONFIG = {
     'dsn': 'http://5a785de534534233a7f0d4dea28725e9:2a36fdc33ff94bcf9e4d2767d6a4aabc@sentry2.fragaria.cz/8',
 }
+
+
+SECRET_KEY = 'RaxnKRBccwCcmHeyRbZXmjvcQ3C9sA'

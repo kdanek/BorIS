@@ -1,13 +1,13 @@
 {% load i18n services %}
 
 <div id="service-interface">
-<fieldset class="module">
+<fieldset class="grp-module">
     <h2>{% trans "Nový výkon" %}</h2>
 
-    <div class="row cells-2 cells">
+    <div class="grp-row grp-cells-2 cells">
         <div class="cell">
-            <div class="column span-4"><label>{% trans "Zvolte druh výkonu:" %}</label></div>
-            <div class="column span-flexible">
+            <div class="grp-column grp-span-4"><label>{% trans "Zvolte druh výkonu:" %}</label></div>
+            <div class="grp-column grp-span-flexible">
                 <select id="service-selector">
                     {% for s in service_list %}
                         {% render_service_option s encounter %}
@@ -22,16 +22,16 @@
 </fieldset>
 
 
-<div class="group tabular">
+<div class="grp-group grp-tabular">
     <h2>{% trans "Provedené výkony" %}</h2>
-    <div class="table module dynamic-form">
-        <div class="module thead dynamic-form">
+    <div class="grp-table grp-module dynamic-form">
+        <div class="grp-module grp-thead dynamic-form">
             <div class="tr">
-                <div class="th">{% trans "Název" %}</div>
-                <div class="th">{% trans "Akce" %}</div>
+                <div class="grp-th">{% trans "Název" %}</div>
+                <div class="grp-th">{% trans "Akce" %}</div>
             </div>
         </div>
-        <div class="module tbody dynamic-form" id="done-services">
+        <div class="grp-module grp-tbody dynamic-form" id="done-services">
 
         </div>
     </div>
@@ -61,7 +61,7 @@
         };
 
         this.refreshServiceList = function () {
-           $('#done-services').load('{% url services_list encounter.pk %}');
+           $('#done-services').load('{% url "services_list" encounter.pk %}');
         };
 
         this.performedServiceCount = function () {

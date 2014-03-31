@@ -9,6 +9,7 @@ import operator
 
 from django.contrib.contenttypes.models import ContentType
 from django.db import models
+from django.db.models.base import ModelBase
 from django.utils.encoding import force_unicode
 from django.utils.functional import curry
 from django.utils.translation import ugettext_lazy as _
@@ -121,7 +122,7 @@ class ServiceOptions(object):
             return ((None, {'fields': fields}),)
 
 
-class ServiceMetaclass(models.Model.__metaclass__):
+class ServiceMetaclass(ModelBase):
     registered_services = []
 
     def __new__(cls, name, bases, attrs):

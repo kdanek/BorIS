@@ -110,8 +110,8 @@ class BorisBaseAdmin(ModelAdmin):
         }
 
     @csrf_protect_m
-    @transaction.commit_on_success
-    def change_view(self, request, object_id, extra_context=None):
+    @transaction.atomic
+    def change_view(self, request, object_id, form_url='', extra_context=None):
         obj = self.get_object(request, object_id)
         buttons_context = {
             'BO_SHOW_SAVE': self.show_save(obj),
@@ -125,11 +125,10 @@ class BorisBaseAdmin(ModelAdmin):
             extra_context.update(buttons_context)
         else:
             extra_context = buttons_context
-        return super(BorisBaseAdmin, self).change_view(request, object_id,
-            extra_context)
+        return super(BorisBaseAdmin, self).change_view(request, object_id, form_url, extra_context)
 
     @csrf_protect_m
-    @transaction.commit_on_success
+    @transaction.atomic
     def add_view(self, request, form_url='', extra_context=None):
         empty_obj = self.model()
         buttons_context = {
@@ -145,5 +144,4 @@ class BorisBaseAdmin(ModelAdmin):
             extra_context.update(buttons_context)
         else:
             extra_context = buttons_context
-        return super(BorisBaseAdmin, self).add_view(request, form_url,
-            extra_context)
+        return super(BorisBaseAdmin, self).add_view(request, form_url, extra_context)

@@ -8,7 +8,7 @@
                 <ul class="actions">
                     {% if child.add_url %}<li class="add-link"><a href="{{ child.add_url }}">{% trans "Add" %}</a></li>{% endif %}
                     {% if child.change_url %}<li class="change-link"><a href="{{ child.change_url }}">{% trans "Change" %}</a></li>{% endif %}
-                    <li class="add-link"><a href="{% url admin:services_encounter_add %}">{% trans "Přidat kontakt" %}</a></li>
+                    <li class="add-link"><a href="{% url "admin:services_encounter_add" %}">{% trans "Přidat kontakt" %}</a></li>
                 </ul>
             {% endif %}
         </div>
